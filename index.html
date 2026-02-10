@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8" />
+<title>Ngày 6 – Sen cố gắng vì ngày gặp</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Segoe UI', sans-serif;
+}
+
+body{
+  height:100vh;
+  background: radial-gradient(circle at top, #e0f2f1, #b2dfdb, #80cbc4);
+  overflow:hidden;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  color:#1f4f4f;
+}
+
+.container{
+  position:relative;
+  z-index:5;
+  max-width:860px;
+  padding:60px;
+  background:rgba(255,255,255,0.82);
+  border-radius:36px;
+  box-shadow:0 50px 100px rgba(0,0,0,0.25);
+  line-height:2.05;
+  animation:fadeIn 3.2s ease;
+}
+
+.day-badge{
+  text-align:center;
+  font-size:14px;
+  letter-spacing:3px;
+  color:#2a7f7f;
+  animation:pulse 4s infinite;
+}
+
+h1{
+  text-align:center;
+  margin:16px 0 38px;
+  font-size:30px;
+  font-weight:600;
+}
+
+p{
+  margin-bottom:10px;
+  font-size:17px;
+}
+
+@keyframes fadeIn{
+  from{opacity:0; transform:translateY(50px);}
+  to{opacity:1; transform:translateY(0);}
+}
+
+@keyframes pulse{
+  0%,100%{opacity:1;}
+  50%{opacity:0.55;}
+}
+
+/* ===== FALLING HEARTS ===== */
+.heart{
+  position:absolute;
+  width:16px;
+  height:16px;
+  background:#26a69a;
+  transform:rotate(45deg);
+  opacity:0.6;
+  animation:fall linear infinite, breathe 4.5s ease-in-out infinite;
+}
+
+.heart::before,
+.heart::after{
+  content:"";
+  position:absolute;
+  width:16px;
+  height:16px;
+  background:inherit;
+  border-radius:50%;
+}
+
+.heart::before{ top:-8px; left:0; }
+.heart::after{ left:-8px; top:0; }
+
+@keyframes fall{
+  0%{
+    transform:translateY(-10vh) rotate(45deg);
+    opacity:0;
+  }
+  10%{ opacity:0.6; }
+  100%{
+    transform:translateY(110vh) rotate(45deg);
+    opacity:0;
+  }
+}
+
+@keyframes breathe{
+  0%,100%{ transform:scale(1) rotate(45deg); }
+  50%{ transform:scale(1.2) rotate(45deg); }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+  <div class="day-badge">NGÀY 6</div>
+  <h1>Sen cố gắng vì ngày gặp</h1>
+
+  <p>Hôm nay là ngày thứ sáu.</p>
+  <p>Hôm nay sen phải vào viện.</p>
+  <p>Cơ thể sen mệt hơn sen nghĩ,</p>
+  <p>nhưng lòng sen thì không cho phép mình gục.</p>
+
+  <p>Sen nằm đó,</p>
+  <p>nghe từng nhịp thở của chính mình,</p>
+  <p>và nghĩ đến moa.</p>
+
+  <p>Sen sắp được gặp moa rồi.</p>
+  <p>Chỉ cần nghĩ đến điều đó thôi,</p>
+  <p>sen đã thấy mình mạnh hơn một chút.</p>
+
+  <p>Sen hứa với bản thân,</p>
+  <p>sen sẽ cố gắng không để mình có chuyện gì.</p>
+  <p>Không phải vì sen giỏi chịu đựng,</p>
+  <p>mà vì sen còn muốn ôm moa.</p>
+
+  <p>Sen vẫn nhớ moa rất nhiều.</p>
+  <p>Nhớ theo cách rất yên,</p>
+  <p>và rất thật.</p>
+
+  <p>Ngày mai thôi.</p>
+  <p>Sen mong mình đủ khỏe để mỉm cười với moa.</p>
+</div>
+
+<script>
+const colors = ['#26a69a','#4db6ac','#80cbc4','#00897b'];
+
+for(let i=0;i<30;i++){
+  const heart=document.createElement('div');
+  heart.className='heart';
+  heart.style.left=Math.random()*100+'vw';
+  heart.style.animationDuration=(16+Math.random()*12)+'s';
+  heart.style.background=colors[Math.floor(Math.random()*colors.length)];
+  document.body.appendChild(heart);
+}
+</script>
+
+</body>
+</html>
